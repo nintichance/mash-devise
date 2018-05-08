@@ -93,6 +93,9 @@ class App extends Component {
       console.log(error)
     }
   }
+  logout = () => {
+    this.setState({currentUser: {}, loggedIn: false})
+  }
   render() {
       const LoginComponent = () => (<Login loggedIn={this.state.loggedIn}
       loginUser={this.loginUser}/>)
@@ -102,7 +105,7 @@ class App extends Component {
       const EditContactComponent = () => (<EditContact redirect={this.state.redirect} 
           currentContact={this.state.currentContact} 
           updateContact={this.updateContact}/>) 
-      const ContactsComponent = () => (<ContactsList deleteContact={this.deleteContact} setCurrentContact={this.setCurrentContact} currentUser={this.state.currentUser} getContacts={this.getContacts} contacts={this.state.contacts}/>)
+      const ContactsComponent = () => (<ContactsList loggedIn={this.state.loggedIn}logout={this.logout}deleteContact={this.deleteContact} setCurrentContact={this.setCurrentContact} currentUser={this.state.currentUser} getContacts={this.getContacts} contacts={this.state.contacts}/>)
       const SignUpComponent = () => (<SignUp loggedIn={this.state.loggedIn} 
         signUp={this.signUp}/>)  
       return (

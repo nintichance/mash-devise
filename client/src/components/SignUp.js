@@ -17,10 +17,6 @@ class SignUp extends Component {
     signUp = (event) => {
         event.preventDefault()
         const newUser = {
-            // name: this.state.name,
-            // username: this.state.username, 
-            // phone: this.state.phone,
-            // image: this.state.image,
             email: this.state.email, 
             password: this.state.password,
             password_confirmation: this.state.password_confirmation

@@ -97,17 +97,17 @@ export const Friend = SortButton.extend`
         background-size: 130px;
         background-repeat: no-repeat;
         background-position: center;
-    @media only screen and (max-width: 500px){
+    @media only screen and (max-width: 870px){
         background-image: url('https://i.imgur.com/lzv1ja8.png');
         height: 100%;
         background-size: 30px;
         background-repeat: no-repeat;
         background-position: center;
-        &:click{
-            background-color: #FF00AB;
-            // background-size: 30px;
-            // background-repeat: no-repeat;
-            // background-position: center;
+        &:hover{
+            background-image: url('https://i.imgur.com/lzv1ja8.png');
+            background-size: 30px;
+            background-repeat: no-repeat;
+            background-position: center;
         }
     }
 `
@@ -117,10 +117,13 @@ export const All = Friend.extend`
         background-image: url('https://i.imgur.com/qRpHeQA.png');
         background-size: 200px;
     }
-    @media only screen and (max-width: 500px){
+    @media only screen and (max-width: 870px){
         background-image: url('https://i.imgur.com/ghIgSXT.png');
         &:hover{
             background-image: url('https://i.imgur.com/ghIgSXT.png');
+            background-size: 30px;
+            background-repeat: no-repeat;
+            background-position: center;
         }
     }
 `
@@ -130,10 +133,13 @@ export const Family = Friend.extend`
         background-image: url('https://i.imgur.com/BAQWpA3.png?1');
         background-size: 175px;
     }
-    @media only screen and (max-width: 500px){
+    @media only screen and (max-width: 870px){
         background-image: url('https://i.imgur.com/Yxax28b.png');
         &:hover{
             background-image: url('https://i.imgur.com/Yxax28b.png');
+            background-size: 30px;
+            background-repeat: no-repeat;
+            background-position: center;
         }
     }
 `
@@ -143,10 +149,13 @@ export const Date = Friend.extend`
         background-image: url('https://i.imgur.com/9fGRs38.png');
         background-size: 200px;
     }
-    @media only screen and (max-width: 500px){
+    @media only screen and (max-width: 870px){
         background-image: url('https://i.imgur.com/nFkkNx4.png');
         &:hover{
             background-image: url('https://i.imgur.com/nFkkNx4.png');
+            background-size: 30px;
+            background-repeat: no-repeat;
+            background-position: center;
         }
     }
 `
@@ -157,10 +166,13 @@ export const Class = Friend.extend`
         background-size: 200px;
 
     }
-    @media only screen and (max-width: 500px){
+    @media only screen and (max-width: 870px){
         background-image: url('https://i.imgur.com/snUj9lK.png');
         &:hover{
             background-image: url('https://i.imgur.com/snUj9lK.png');
+            background-size: 30px;
+            background-repeat: no-repeat;
+            background-position: center;
         }
     }
 `
@@ -170,10 +182,13 @@ export const Job = Friend.extend`
         background-image: url('https://i.imgur.com/VUwjOMe.png');
         background-size: 175px;
     }
-    @media only screen and (max-width: 500px){
+    @media only screen and (max-width: 870px){
         background-image: url('https://i.imgur.com/Xy5vIPx.png');
         &:hover{
             background-image: url('https://i.imgur.com/Xy5vIPx.png');
+            background-size: 30px;
+            background-repeat: no-repeat;
+            background-position: center;
         }
     }
 `
@@ -183,10 +198,13 @@ export const Network = Friend.extend`
         background-image: url('https://i.imgur.com/qHXmDyD.png?1');
         background-size: 200px;
     }
-    @media only screen and (max-width: 500px){
+    @media only screen and (max-width: 870px){
         background-image: url('https://i.imgur.com/XBAFu5Z.png');
         &:hover{
             background-image: url('https://i.imgur.com/XBAFu5Z.png');
+            background-size: 30px;
+            background-repeat: no-repeat;
+            background-position: center;
         }
     }
 `
