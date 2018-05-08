@@ -17,6 +17,15 @@ class App extends Component {
     redirect: false,
     currentContact: {}
   }
+  deleteContact = async(userId, contactId) => {
+    try{
+        axios.delete(`${userId}/contacts/${contactId}`)
+        alert("contact deleted")
+        this.setState({redirect: true})
+    }
+    catch(error){
+    }
+}
   setCurrentContact = (contact) =>{
     this.setState({currentContact: contact})
   }
@@ -80,7 +89,7 @@ class App extends Component {
       const EditContactComponent = () => (<EditContact redirect={this.state.redirect} 
           currentContact={this.state.currentContact} 
           updateContact={this.updateContact}/>) 
-      const ContactsComponent = () => (<ContactsList setCurrentContact={this.setCurrentContact} currentUser={this.state.currentUser} getContacts={this.getContacts} contacts={this.state.contacts}/>)
+      const ContactsComponent = () => (<ContactsList deleteContact={this.deleteContact} setCurrentContact={this.setCurrentContact} currentUser={this.state.currentUser} getContacts={this.getContacts} contacts={this.state.contacts}/>)
     return (
       <Router>
       <div>

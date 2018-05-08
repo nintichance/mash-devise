@@ -15,9 +15,11 @@ class ContactsController < ApplicationController
             @contact.update!(contact_params)
             render json: @contact
         end
-      
+        def destroy
+            @contact = Contact.find(params[:id]).delete
+            render status: :ok
+        end
         private
-    
         def contact_params
           params.require(:contact).permit(:user_id, :userid, :name, :username, :image, :phone, :email, :twitter, :instagram, :facebook, :street, :city, :zip, :relation)
         end
