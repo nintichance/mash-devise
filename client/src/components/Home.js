@@ -12,7 +12,7 @@ import { InfoText } from './styled-components/Text'
 const Home = () => {
         return(
             <HomeContainer>
-                {/* <NavBar /> */}
+                <NavBar />
                 <SquaresContainer>
                     <RightDiv>
                         <InfoText>Keep in Touch. <br/>Organize Contacts.<br/> Make calls.<br/> Mesh. <br/>Sign Up Today!</InfoText>

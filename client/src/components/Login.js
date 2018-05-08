@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import NavBar from './NavBar'
+import NavBar from './NavBar'
 import { Form, 
          Container, 
          FormWrapper, 
@@ -32,7 +32,7 @@ class Login extends Component {
       }
         return(
             <Container>
-                {/* <NavBar /> */}
+                <NavBar />
                 <FormWrapper>
                 <FormBody>
                     <p> Welcome Back!</p>

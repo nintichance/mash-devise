@@ -5,6 +5,7 @@ import Home from './components/Home'
 import NewContact from './components/NewContact'
 import EditContact from './components/EditContact'
 import ContactsList from './components/ContactsList'
+import SignUp from './components/SignUp'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import axios from 'axios'
 
@@ -17,6 +18,18 @@ class App extends Component {
     redirect: false,
     currentContact: {}
   }
+  signUp = async(userInfo) => {
+    try{
+          const response = await axios.post('/api', userInfo)
+          const user = response.data.data
+          console.log(user)
+
+          this.setState({loggedIn: true, currentUser: user})
+      }
+      catch(error){
+          alert("Sign Up failed. Please try again.")
+      }
+}
   deleteContact = async(userId, contactId) => {
     try{
         axios.delete(`${userId}/contacts/${contactId}`)
@@ -90,7 +103,9 @@ class App extends Component {
           currentContact={this.state.currentContact} 
           updateContact={this.updateContact}/>) 
       const ContactsComponent = () => (<ContactsList deleteContact={this.deleteContact} setCurrentContact={this.setCurrentContact} currentUser={this.state.currentUser} getContacts={this.getContacts} contacts={this.state.contacts}/>)
-    return (
+      const SignUpComponent = () => (<SignUp loggedIn={this.state.loggedIn} 
+        signUp={this.signUp}/>)  
+      return (
       <Router>
       <div>
           <Switch>
@@ -99,6 +114,7 @@ class App extends Component {
             <Route exact path="/contacts" render={ContactsComponent}/>
             <Route exact path="/new_contact" render={NewContactComponent}/>
             <Route exact path="/edit_contact" render={EditContactComponent}/>
+            <Route exact path="/signup" render={SignUpComponent}/>
           </Switch>
       </div>
     </Router>
