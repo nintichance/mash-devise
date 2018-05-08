@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import logo from './logo.svg'
 import Login from './components/Login'
-import './App.css'
+import Home from './components/Home'
+import ContactsList from './components/ContactsList'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import axios from 'axios'
 
@@ -22,9 +23,9 @@ class App extends Component {
     
   }
   render() {
-      const LoginComponent = () => (<LoginUser loggedIn={this.state.loggedIn}
+      const LoginComponent = () => (<Login loggedIn={this.state.loggedIn}
       loginUser={this.loginUser}/>)
-      const SignUpComponent = () => (<SignUp />)
+      const ContactsComponent = () => (<ContactsList />)
     return (
       <Router>
       <div>
