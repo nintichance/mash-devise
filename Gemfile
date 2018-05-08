@@ -20,6 +20,7 @@ gem 'omniauth'
 gem 'devise_token_auth'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
+gem 'ffaker'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
