@@ -10,7 +10,22 @@ class App extends Component {
   state = {
     contacts: [],
     currentUser: {},
-    loggedIn: false
+    loggedIn: false,
+    newContactAdded: false,
+    redirect: false,
+    currentContact: {}
+  }
+  newContact = async(contactInfo) => {
+    try{
+      console.log('Clicked')
+      const user_id = this.state.currentUser.id
+      const response = await axios.post(`/api/users/${user_id}/contacts`, contactInfo)
+      console.log(response)
+      this.setState({newContactAdded: true})
+    }
+    catch(error){
+      console.log(error)
+    }
   }
   loginUser = async(userEmail, pass)=>{
     try{
@@ -40,6 +55,9 @@ class App extends Component {
   render() {
       const LoginComponent = () => (<Login loggedIn={this.state.loggedIn}
       loginUser={this.loginUser}/>)
+      const NewContactComponent = () => (<NewContact newContact={this.newContact}
+        newContactAdded={this.state.newContactAdded} 
+        userId={this.state.currentUser.id}/>)
       const ContactsComponent = () => (<ContactsList currentUser={this.state.currentUser} getContacts={this.getContacts} contacts={this.state.contacts}/>)
     return (
       <Router>
@@ -48,6 +66,7 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/login" render={LoginComponent}/>
             <Route exact path="/contacts" render={ContactsComponent}/>
+            <Route exact path="/new_contact" render={NewContactComponent}/>
           </Switch>
       </div>
     </Router>
