@@ -8,6 +8,7 @@ import axios from 'axios'
 
 class App extends Component {
   state = {
+    contacts: [],
     currentUser: {},
     loggedIn: false
   }
@@ -15,17 +16,31 @@ class App extends Component {
     try{
       const response = await axios.post(`/api/sign_in`, {email: userEmail, password: pass})
       console.log(response.data)
-      this.setState({loggedIn: true, currentUser: response.data[0]})
+      const currentUser = response.data.data
+      this.setState({currentUser, loggedIn: true})
     }
     catch(error){
       console.log(error)
     }
     
   }
+  getContacts = async() => {
+    console.log("CALLEDIT")
+    const user_id = this.state.currentUser.id
+    try{
+      const response = await axios.get(`${user_id}/contacts`)
+      const contacts = response.data
+      console.log(contacts)
+      this.setState({contacts})
+    }
+    catch(error){
+      console.log(error)
+    }
+  }
   render() {
       const LoginComponent = () => (<Login loggedIn={this.state.loggedIn}
       loginUser={this.loginUser}/>)
-      const ContactsComponent = () => (<ContactsList />)
+      const ContactsComponent = () => (<ContactsList currentUser={this.state.currentUser} getContacts={this.getContacts} contacts={this.state.contacts}/>)
     return (
       <Router>
       <div>

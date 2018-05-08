@@ -1,11 +1,15 @@
 class ContactsController < ApplicationController
-        before_action :authenticate_user!
+        # before_action :authenticate_user!
       
-        def index
-          @contacts = current_user.contacts
-    
-          render json: @contacts
-        end
+        # def index
+        #   @contacts = current_user.contacts
+        #   render json: @contacts
+        # end
+        def retrieve
+            @user = User.find(params[:userid])
+            @contacts = @user.contacts
+            render json: @contacts
+        end 
       
         # def show
         #   @contact = contact.find(params[:id])
@@ -44,6 +48,6 @@ class ContactsController < ApplicationController
         private
       
         def contact_params
-          params.require(:contact).permit(:name, :username, :image, :phone, :email, :twitter, :instagram, :facebook, :street, :city, :zip, :relation)
+          params.require(:contact).permit(:userid, :name, :username, :image, :phone, :email, :twitter, :instagram, :facebook, :street, :city, :zip, :relation)
         end
 end
