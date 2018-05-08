@@ -69,7 +69,7 @@ class ContactsList extends Component {
                                        placeholder='search'
                                        onChange={this.handleChange}/>
                         </SearchBarContainer>
-                        <ProfileDiv onClick={()=>this.props.logout()}><ProfileImage src={this.props.currentUser.image}/>logout</ProfileDiv>
+                        <ProfileDiv onClick={()=>this.props.logout()}><ProfileImage src="https://i.imgur.com/BkaVPUn.png"/>logout</ProfileDiv>
                         <Link to='/'><MeshImage src='https://i.imgur.com/Wfw20Fk.png?1' /></Link>
                     </NavBarWrapper>
                     <ContactsWrapper>
