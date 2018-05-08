@@ -76,7 +76,7 @@ class App extends Component {
       this.setState({currentUser, loggedIn: true})
     }
     catch(error){
-      console.log(error)
+      alert("Login failed. Please try again.")
     }
     
   }
