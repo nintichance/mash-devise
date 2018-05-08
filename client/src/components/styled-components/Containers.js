@@ -110,6 +110,9 @@ export const Friend = SortButton.extend`
             background-position: center;
         }
     }
+    @media only screen and (max-width: 942px){
+        background-color: #FF00AB;
+    }
 `
 export const All = Friend.extend`
     background-image: url('https://i.imgur.com/gE2LgG9.png');
@@ -126,6 +129,7 @@ export const All = Friend.extend`
             background-position: center;
         }
     }
+   
 `
 export const Family = Friend.extend`
     background-image: url('https://i.imgur.com/ogeNQvF.png');
