@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import logo from './logo.svg'
 import Login from './components/Login'
 import Home from './components/Home'
+import NewContact from './components/NewContact'
 import ContactsList from './components/ContactsList'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import axios from 'axios'
@@ -19,7 +20,7 @@ class App extends Component {
     try{
       console.log('Clicked')
       const user_id = this.state.currentUser.id
-      const response = await axios.post(`/api/users/${user_id}/contacts`, contactInfo)
+      const response = await axios.post(`${user_id}/contacts`, contactInfo)
       console.log(response)
       this.setState({newContactAdded: true})
     }
