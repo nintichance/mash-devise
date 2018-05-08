@@ -3,6 +3,7 @@ import logo from './logo.svg'
 import Login from './components/Login'
 import Home from './components/Home'
 import NewContact from './components/NewContact'
+import EditContact from './components/EditContact'
 import ContactsList from './components/ContactsList'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import axios from 'axios'
@@ -16,6 +17,23 @@ class App extends Component {
     redirect: false,
     currentContact: {}
   }
+  setCurrentContact = (contact) =>{
+    this.setState({currentContact: contact})
+  }
+  updateContact = async(updatedContact) =>{
+    const currentContact = this.state.currentContact
+    const contactId = this.state.currentContact.id
+    const userId = this.state.currentUser.id
+    try {
+        await axios.patch(`${userId}/contacts/${contactId}`, updatedContact, currentContact)
+        console.log("UPDATEIT")
+        this.setState({ redirect: true })
+    }
+    catch (err) {
+        console.log(err)
+    }
+  }
+  
   newContact = async(contactInfo) => {
     try{
       console.log('Clicked')
@@ -59,7 +77,10 @@ class App extends Component {
       const NewContactComponent = () => (<NewContact newContact={this.newContact}
         newContactAdded={this.state.newContactAdded} 
         userId={this.state.currentUser.id}/>)
-      const ContactsComponent = () => (<ContactsList currentUser={this.state.currentUser} getContacts={this.getContacts} contacts={this.state.contacts}/>)
+      const EditContactComponent = () => (<EditContact redirect={this.state.redirect} 
+          currentContact={this.state.currentContact} 
+          updateContact={this.updateContact}/>) 
+      const ContactsComponent = () => (<ContactsList setCurrentContact={this.setCurrentContact} currentUser={this.state.currentUser} getContacts={this.getContacts} contacts={this.state.contacts}/>)
     return (
       <Router>
       <div>
@@ -68,6 +89,7 @@ class App extends Component {
             <Route exact path="/login" render={LoginComponent}/>
             <Route exact path="/contacts" render={ContactsComponent}/>
             <Route exact path="/new_contact" render={NewContactComponent}/>
+            <Route exact path="/edit_contact" render={EditContactComponent}/>
           </Switch>
       </div>
     </Router>

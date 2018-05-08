@@ -10,6 +10,11 @@ class ContactsController < ApplicationController
             @contacts = @user.contacts
             render json: @contacts
         end 
+        def update
+            @contact = Contact.find(params[:id])
+            @contact.update!(contact_params)
+            render json: @contact
+        end
       
         private
     
