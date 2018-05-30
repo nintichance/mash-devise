@@ -36,21 +36,21 @@ class Login extends Component {
                 <FormWrapper>
                 <FormBody>
                     <p> Welcome Back!</p>
-                    <Form onSubmit={this.handleLogin}>
-                        <FormInput
+                    <form onSubmit={this.handleLogin}>
+                        <input
                             type="string"
                             name="email"
                             placeholder="Email"
                             onChange={this.handleChange}
                             />
-                        <FormInput
+                        <input
                             type="string"
                             name="password"
                             placeholder="Password"
                             onChange={this.handleChange}
                             />
                         <FormButton className="input-button" type="submit" value="Login" />
-                    </Form>
+                    </form>
                 </FormBody>
                 </FormWrapper>
             </Container>

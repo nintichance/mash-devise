@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
 import Login from './components/Login'
 import Home from './components/Home'
 import NewContact from './components/NewContact'
@@ -98,14 +97,20 @@ class App extends Component {
   }
   render() {
       const LoginComponent = () => (<Login loggedIn={this.state.loggedIn}
-      loginUser={this.loginUser}/>)
+                                           loginUser={this.loginUser}/>)
       const NewContactComponent = () => (<NewContact newContact={this.newContact}
-        newContactAdded={this.state.newContactAdded} 
-        userId={this.state.currentUser.id}/>)
+                                                     newContactAdded={this.state.newContactAdded} 
+                                                     userId={this.state.currentUser.id}/>)
       const EditContactComponent = () => (<EditContact redirect={this.state.redirect} 
-          currentContact={this.state.currentContact} 
-          updateContact={this.updateContact}/>) 
-      const ContactsComponent = () => (<ContactsList loggedIn={this.state.loggedIn}logout={this.logout}deleteContact={this.deleteContact} setCurrentContact={this.setCurrentContact} currentUser={this.state.currentUser} getContacts={this.getContacts} contacts={this.state.contacts}/>)
+                                                       currentContact={this.state.currentContact} 
+                                                       updateContact={this.updateContact}/>) 
+      const ContactsComponent = () => (<ContactsList loggedIn={this.state.loggedIn}
+                                                     logout={this.logout}
+                                                     deleteContact={this.deleteContact} 
+                                                     setCurrentContact={this.setCurrentContact} 
+                                                     currentUser={this.state.currentUser} 
+                                                     getContacts={this.getContacts} 
+                                                     contacts={this.state.contacts}/>)
       const SignUpComponent = () => (<SignUp loggedIn={this.state.loggedIn} 
         signUp={this.signUp}/>)  
       return (
