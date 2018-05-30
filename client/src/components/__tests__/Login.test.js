@@ -10,13 +10,17 @@ const renderComponent = () => {
 let component 
 const loginUser = jest.fn()
 beforeEach(()=>{
-    
+    console.log("Hello")
     component=renderComponent()
 })
 it('Tests if user input is submitted', () => {
     const form = component.find('form')
     console.log(form)
-    const input = component.find('input')
+    const inputOne = component.find('input').at(0)
+    const inputTwo = component.find('input').at(1)
+
+
+    console.log("Hello", inputOne, "Hi", inputTwo)
     const userEmail = 'test string'
     const userPassword = 'test string'
     const changeEvent = {
@@ -31,15 +35,16 @@ it('Tests if user input is submitted', () => {
         preventDefault: jest.fn()
     }
 
-    input.simulate('change', changeEvent)
+    inputOne.simulate('change', changeEvent)
+    inputTwo.simulate('change', changeEvent)
 
     const submitEvent = {
         preventDefault: jest.fn()
     }
     form.simulate('submit', submitEvent)
     const state =  {
-        email: '',
-        password: ''
+        email: 'test string',
+        password: 'test string'
     }
     const expectedState =  {
         email: userEmail,
